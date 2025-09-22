@@ -67,9 +67,25 @@ namespace IntroExercises
         //0 if endIndex is less than startIndex or any of them is outside the array
 
         public static int Count(int[] array, int value, int startIndex, int endIndex)
-        {
-            return 0;
+         {
+            int counter = 0;
+
+            if (startIndex < endIndex || array != null || array.Length != 0 || endIndex! < array.Length || startIndex! < 0)
+            {
+                return 0;
+            }
+            {
+                for (int i = startIndex; i <= endIndex; i++)
+                {
+                    if (array[i] == value)
+                    {
+                        counter++;
+                    }
+                }
+            }
+            return counter;
         }
+
 
         //TODO #5
         //AreEqual should return true if both arrays have the same length and each element appears the same number of times in A and B
@@ -81,7 +97,25 @@ namespace IntroExercises
         //  AreEqual(null, null) => false
         public static bool AreEqual(int[] A, int[] B)
         {
-            return true;
+            bool boolean = false;
+            int contador1 = 0;
+            int contador2 = 0;
+
+            if(A.length == B.Length){
+                for(int i = 0; i<A.length; i++){
+                    contador1 = Count(A, A[i], i, A.length);
+                    contador2 = Count(A, A[i], i, B.length);
+
+                    if (contador1 == contador2){
+                        boolean = true;
+                    } else {
+                        boolean = false;
+                    }
+                }
+                
+
+            }
+            return boolean;
         }
     }
 }
